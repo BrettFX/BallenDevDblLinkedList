@@ -23,7 +23,7 @@ class BallenDevDblLinkedList
 		BallenDevDblLinkedList();
 		
 		/*Insert a node in it's correct location based on a ascention algorithm*/
-		void insertNode(int key);
+		void insert(int key);
 		
 		/*Delete a node from the list*/
 		void deleteNode(int key);
@@ -34,8 +34,11 @@ class BallenDevDblLinkedList
 		/*Get the memory address of the end of the list*/
 		Node* getTail() const;
 		
-		/*Display the list*/
-		void display();
+		/*Display the list in ascending order*/
+		void displayAscending();
+		
+		/*Display the ist in descending order*/
+		void displayDescending();
 		
 		~BallenDevDblLinkedList();
 	
