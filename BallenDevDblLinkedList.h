@@ -1,6 +1,9 @@
 #ifndef BALLENDEVDBLLINKEDLIST_H_
 #define BALLENDEVDBLLINKEDLIST_H_
 
+#include <iostream>
+#include <string>
+
 class BallenDevDblLinkedList
 {
 	private:
@@ -36,6 +39,6 @@ class BallenDevDblLinkedList
 		
 		~BallenDevDblLinkedList();
 	
-}
+};
 
 #endif

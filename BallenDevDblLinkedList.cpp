@@ -1,42 +1,42 @@
 #include "BallenDevDblLinkedList.h"
 
-BallenDevDblLinkedList()
+BallenDevDblLinkedList::BallenDevDblLinkedList()
 {
 	head = NULL;
 	tail = NULL;
 }
 		
 /*Insert a node in it's correct location based on a ascention algorithm*/
-void insertNode(int key)
+void BallenDevDblLinkedList::insertNode(int key)
 {
 	
 }
 
 /*Delete a node from the list*/
-void deleteNode(int key)
+void BallenDevDblLinkedList::deleteNode(int key)
 {
 	
 }
 
 /*Get the memory address of the beginning of the list*/
-Node* getHead() const
+BallenDevDblLinkedList::Node* BallenDevDblLinkedList::getHead() const
 {
 	return head;
 }
 
 /*Get the memory address of the end of the list*/
-Node* getTail() const
+BallenDevDblLinkedList::Node* BallenDevDblLinkedList::getTail() const
 {
 	return tail;
 }
 
 /*Display the list*/
-void display()
+void BallenDevDblLinkedList::display()
 {
 	
 }
 
-~BallenDevDblLinkedList()
+BallenDevDblLinkedList::~BallenDevDblLinkedList()
 {
 	
 }
