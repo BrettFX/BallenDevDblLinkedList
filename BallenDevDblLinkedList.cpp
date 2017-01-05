@@ -6,7 +6,7 @@ BallenDevDblLinkedList::BallenDevDblLinkedList()
 	tail = NULL;
 }
 		
-/*Insert a node in it's correct location based on a ascention algorithm*/
+/*Insert a node in it's correct location based on an ascention algorithm*/
 void BallenDevDblLinkedList::insert(int key)
 {
 	Node* currentNode = NULL;
@@ -27,20 +27,32 @@ void BallenDevDblLinkedList::insert(int key)
 		currentNode = head;
 		
 		//Traverse the list and find the location for the node to be inserted
-		while(currentNode && currentNode->key >= key)
+		while(currentNode && currentNode->key < key) //
 			currentNode = currentNode->next;
-			
-		if(currentNode)
+		
+		//Inserting at the beginning of the list
+		if(currentNode == head) 
 		{
-			tail->next = nodeToInsert;
-			tail = nodeToInsert;
-			tail->next = NULL;
+			nodeToInsert->next = currentNode;
+			currentNode->prev = nodeToInsert;
+			head = nodeToInsert;
 		}
-		else
+		//Inserting somewhere within the list
+		else if(currentNode)
+		{			
+			currentNode->prev->next = nodeToInsert;
+			nodeToInsert->prev = currentNode->prev;
+			currentNode->prev = nodeToInsert;
+			nodeToInsert->next = currentNode;			
+		}
+		//Inserting at the end of the list
+		else 
 		{
-			std::cout << "ERROR: Duplicates not permitted\n\n";
-			delete nodeToInsert;
-		}			
+			currentNode = nodeToInsert;
+			currentNode->prev = tail;
+			tail->next = currentNode;
+			tail = currentNode;
+		}				
 	}
 }
 
@@ -70,7 +82,9 @@ void BallenDevDblLinkedList::displayAscending()
 	if(head)
 	{
 		currentNode = head;
-		
+	
+		std::cout << "Ascending Order: ";
+	
 		while(currentNode)
 		{
 			std::cout << currentNode->key << "\t";
@@ -92,6 +106,8 @@ void BallenDevDblLinkedList::displayDescending()
 	{
 		currentNode = tail;
 		
+		std::cout << "Descending Order: ";
+		
 		while(currentNode)
 		{
 			std::cout << currentNode->key << "\t";
@@ -109,16 +125,22 @@ BallenDevDblLinkedList::~BallenDevDblLinkedList()
 	Node* currentNode = NULL;
 	Node* nextNode = NULL;
 	
+	int numDeleted = 0;
+	
 	if(head)
 	{
+		currentNode = head;
+		
 		while(currentNode)
 		{
 			nextNode = currentNode->next;
 			delete currentNode;
 			currentNode = nextNode;
+			
+			numDeleted++;
 		}
 		
-		std::cout << "Memory released.\n";
+		std::cout << numDeleted << " nodes deleted. Memory released.\n";
 	}
 	else
 		std::cout << "No nodes to delete.\n";
