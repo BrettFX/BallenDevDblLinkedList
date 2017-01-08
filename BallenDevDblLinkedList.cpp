@@ -59,7 +59,47 @@ void BallenDevDblLinkedList::insert(int key)
 /*Delete a node from the list*/
 void BallenDevDblLinkedList::deleteNode(int key)
 {
+	Node* nodeToDelete = NULL;
 	
+	if(head)
+	{
+		//Deleting the head node
+		if(key == head->key)
+		{
+			nodeToDelete = head;
+			head = head->next;
+			head->prev = NULL;
+			delete nodeToDelete;
+		}
+		//Deleting the tail node
+		else if(tail && key == tail->key)
+		{
+			nodeToDelete = tail;
+			tail = tail->prev;
+			tail->next = NULL;
+			delete nodeToDelete;
+		}
+		//Traverse the list and find the node to delete
+		else
+		{
+			nodeToDelete = head;
+			
+			while(nodeToDelete && nodeToDelete->key != key)			
+				nodeToDelete = nodeToDelete->next;
+			
+			//Delete the node and preserve the links if found
+			if(nodeToDelete)
+			{
+				nodeToDelete->prev->next = nodeToDelete->next;
+				nodeToDelete->next->prev = nodeToDelete->prev;
+				delete nodeToDelete;
+			}
+			else
+				std::cout << "ERROR: key value " << key << " does not exist in the list.\n\n";
+		}
+	}
+	else
+		std::cout << "There are no nodes to be deleted.\n\n";
 }
 
 /*Get the memory address of the beginning of the list*/
