@@ -26,7 +26,7 @@ class BallenDevDblLinkedList
 		void insert(int key);
 		
 		/*Delete a node from the list*/
-		void deleteNode(int key);
+		void dispose(int key);
 		
 		/*Get the memory address of the beginning of the list*/
 		Node* getHead() const;

@@ -70,7 +70,7 @@ void renderChoice(int choice, BallenDevDblLinkedList& dblList)
 			dblList.displayAscending();
 			cout << "Enter key to delete: ";
 			cin >> input;
-			dblList.deleteNode(input);
+			dblList.dispose(input);
 			break;
 			
 		case DISPLAY_ASCENDING:

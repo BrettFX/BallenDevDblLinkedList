@@ -57,7 +57,7 @@ void BallenDevDblLinkedList::insert(int key)
 }
 
 /*Delete a node from the list*/
-void BallenDevDblLinkedList::deleteNode(int key)
+void BallenDevDblLinkedList::dispose(int key)
 {
 	Node* nodeToDelete = NULL;
 	
