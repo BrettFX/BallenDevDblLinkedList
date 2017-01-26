@@ -6,7 +6,7 @@ BallenDevDblLinkedList::BallenDevDblLinkedList()
 	tail = NULL;
 }
 		
-/*Insert a node in it's correct location based on an ascention algorithm*/
+/*Insert a node in it's correct location based on an ascension algorithm*/
 void BallenDevDblLinkedList::insert(int key)
 {
 	Node* currentNode = NULL;
